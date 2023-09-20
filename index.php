@@ -13,7 +13,19 @@ include 'includes/newclass.inc.php';
 
 $person = new Person();
 $person->setName("Rihins");
-echo $person->name;
+echo $person->getName();
+
+echo "<br><br>";
+
+$employee = new Employee();
+$manager = new Manager();
+$employee->setAccess("Level: 3");
+$manager->setAccess("Level: 5");
+echo "Employee access - ";
+echo $employee->getAccess();
+echo "<br>";
+echo "Manager access - "; 
+echo $manager->getAccess();
 
 $connect = mysqli_connect(
     'db',
