@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <title>php-docker website</title>
+</head>
+<body>
+    
 <?php
 
 $connect = mysqli_connect(
@@ -22,3 +32,6 @@ while($record = mysqli_fetch_assoc($result))
 }
 
 ?>
+
+</body>
+</html>
