@@ -9,6 +9,11 @@
 <body>
     
 <?php
+include 'includes/newclass.inc.php';
+
+$person = new Person();
+$person->setName("Rihins");
+echo $person->name;
 
 $connect = mysqli_connect(
     'db',
@@ -16,6 +21,7 @@ $connect = mysqli_connect(
     'password',
     'lamp_demo'
 );
+
 
 $query = 'SELECT *
     FROM blog';
