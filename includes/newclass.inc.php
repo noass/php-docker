@@ -30,7 +30,7 @@
         }
     }
     
-    class Manager extends Employee {
+    class Manager extends Employee { 
         public $name;
         public $role;
         public $access;

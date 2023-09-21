@@ -34,22 +34,27 @@ $connect = mysqli_connect(
     'lamp_demo'
 );
 
-
-$query = 'SELECT *
-    FROM blog';
+$query = 'SELECT e.employee_id, e.first_name, e.last_name, e.job_title, m.first_name AS manager
+    FROM employees e left JOIN employees m ON e.reports_to = m.employee_id;';
 $result = mysqli_query($connect, $query);
 
-echo '<h1>MySQL Content:</h1>';
+echo '<h1>Employees data</h1>';
 
 while($record = mysqli_fetch_assoc($result))
 {
-    echo '<h2>'.$record['title'].'</h2>';
-    echo '<p>'.$record['content'].'</p>';
-    echo 'Posted: '.$record['date'];
+    //echo var_dump("$record");
+    echo '<h2>Employee ID: '.$record['employee_id'].'</h2>';
+    echo '<p>First name: '.$record['first_name'].'</p>';
+    echo '<p>Last name: '.$record['last_name'].'</p>';
+    echo '<p>Job title: '.$record['job_title'].'</p>';
+    if($record['manager'] != NULL){
+        echo '<p>Manager: '.$record['manager'].'</p>';
+    }else{
+        echo '<p>Manager: NO MANAGER</p>';
+    }
     echo '<hr>';
 }
 
 ?>
-
 </body>
 </html>
