@@ -34,13 +34,15 @@ $connect = mysqli_connect(
     'lamp_demo'
 );
 
-$query = 'SELECT e.employee_id, e.first_name, e.last_name, e.job_title, m.first_name AS manager
+$query1 = 'SELECT e.employee_id, e.first_name, e.last_name, e.job_title, m.first_name AS manager
     FROM employees e left JOIN employees m ON e.reports_to = m.employee_id;';
-$result = mysqli_query($connect, $query);
+$query2 = 'SELECT o.order_id, c.customer_id AS customer, o.order_date FROM orders o left JOIN customers c ON o.customer_id = c.customer_id;';
+$result1 = mysqli_query($connect, $query1);
+$result2 = mysqli_query($connect, $query2);
 
 echo '<h1>Employees data</h1>';
 
-while($record = mysqli_fetch_assoc($result))
+while($record = mysqli_fetch_assoc($result1))
 {
     //echo var_dump("$record");
     echo '<h2>Employee ID: '.$record['employee_id'].'</h2>';
@@ -52,6 +54,19 @@ while($record = mysqli_fetch_assoc($result))
     }else{
         echo '<p>Manager: NO MANAGER</p>';
     }
+    echo '<hr>';
+}
+
+echo '<hr>';
+echo '<hr>';
+echo '<hr>';
+echo '<h1>Order data</h1>';
+
+while($record = mysqli_fetch_assoc($result2))
+{
+    echo '<h2>Order ID: '.$record['order_id'].'</h2>';
+    echo '<p>Customer ID: '.$record['customer'].'</p>';
+    echo '<p>Order date: '.$record['order_date'].'</p>';
     echo '<hr>';
 }
 
