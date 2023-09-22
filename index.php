@@ -10,6 +10,7 @@
     
 <?php
 include 'includes/newclass.inc.php';
+include 'includes/product_table.php';
 
 $person = new Person();
 $person->setName("Rihins");
