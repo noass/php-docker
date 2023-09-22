@@ -22,11 +22,9 @@ $employee = new Employee();
 $manager = new Manager();
 $employee->setAccess("Level: 3");
 $manager->setAccess("Level: 5");
-echo "Employee access - ";
-echo $employee->getAccess();
+echo "Employee access - ".$employee->getAccess();
 echo "<br>";
-echo "Manager access - "; 
-echo $manager->getAccess();
+echo "Manager access - ".$manager->getAccess(); 
 
 $connect = mysqli_connect(
     'db',
@@ -72,5 +70,6 @@ while($record = mysqli_fetch_assoc($result2))
 }
 
 ?>
+<script src="js/app.js"></script>
 </body>
 </html>
